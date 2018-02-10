@@ -3,7 +3,7 @@
     background-position: center;
     background-size: cover;
     transition: background-image .3s linear;
-    padding-top: 10px;
+    padding-top: 5vh;
     padding-right: 10px;
     padding-left: 10px;
     margin-bottom: 0;
@@ -27,6 +27,11 @@
     text-align: right;
 }
 
-.top-title {
-    color: white;
+.top-title-container {
+    text-align: center;
+}
+
+.center-crab {
+    width: 40vw;
+    align-content: center;
 }
