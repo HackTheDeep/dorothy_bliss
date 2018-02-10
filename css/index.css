@@ -1,5 +1,37 @@
 #page-top {
-    height: 100vh;
+    height: 90vh;
+    background-position: center;
+    background-size: cover;
+    transition: background-image .3s linear;
+    padding-top: 5vh;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-bottom: 0;
+}
+
+.caption-citation-container {
+    padding: 20px, 20px, 20px, 20px !important;
+    background-color: #f87060;
+    color: white;
+    width: 100%;
+    height: 10vh;
+    line-height: 10vh;
+}
+
+.caption-citation {
+    float: left;
+}
+
+.scroll-hint {
+    float: right;
+    text-align: right;
+}
+
+.top-title-container {
     text-align: center;
-    padding-top: 30vh;
+}
+
+.center-crab {
+    width: 40vw;
+    align-content: center;
 }
