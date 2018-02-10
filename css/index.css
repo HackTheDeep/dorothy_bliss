@@ -1,5 +1,16 @@
 #page-top {
-    height: 100vh;
+    height: 90vh;
     text-align: center;
     padding-top: 30vh;
+    background-position: center;
+    background-size: cover;
+    transition: background-image .3s linear;
+}
+
+.caption-citation {
+    float: left;
+}
+
+.scroll-hint {
+    float: right;
 }
