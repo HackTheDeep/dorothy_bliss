@@ -7,6 +7,10 @@
 	position: relative;
 }
 
+.timeline .hidden {
+	display: none;
+}
+
 .timeline-line {
 	background: black;
 	width: 100%;
@@ -26,13 +30,55 @@
 	height: 20px;
 }
 
-.timeline-dot {
-	background: #7a7afa;
-	border: solid 2px black;
-	border-radius: 100%;
-	cursor: pointer;
+.timeline-item {
 	position: absolute;
 	margin-top: -21px;
-	width: 24px;
+}
+
+.timeline-item .timeline-item-click-target {
+	cursor: pointer;
+	width: 25px;
+	margin-left: -10px;
+	padding-left: 10px;
+}
+
+.timeline-item .timeline-item-line {
+	background: #f85a3e;
+	width: 5px;
 	height: 24px;
+}
+
+.timeline-item .timeline-item-line {
+	transition: all 0.2s ease-in-out;
+}
+
+.timeline-item.details .timeline-item-line {
+	height: 36px;
+}
+
+.timeline-item.top.details .timeline-item-line {
+	margin-top: -12px;
+}
+
+.timeline-item .timeline-item-subtext {
+	margin-top: 5px;
+	width: 200px;
+}
+
+.timeline-item.top .timeline-item-subtext {
+	position: absolute;
+	bottom: 24px;
+}
+
+.timeline-item .timeline-item-subtext .timeline-item-subtext-details {
+	display: none;
+	font-size: 12px;
+}
+
+.timeline-item.details .timeline-item-subtext .timeline-item-subtext-details {
+	display: block;
+}
+
+.timeline-item.details .timeline-item-subtext .timeline-item-subtext-details .details-date {
+	margin-top: 14px;
 }

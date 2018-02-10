@@ -1,0 +1,43 @@
+{
+	"sections": {
+		"childhood": {
+			"name": "Childhood"
+		},
+		"work": {
+			"name": "Work"
+		}
+	},
+	"items": [
+		{
+			"offset": 25,
+			"group": "childhood",
+			"date": "1916",
+			"title": "Birth",
+			"blurb": {
+				"description": "She was born in Cranston, Rhode Island to her parents Dr. Orville Thayer and Sophia Topham.",
+				"date": "Feburary 13th, 1916"
+			}
+		},
+		{
+			"offset": 225,
+			"group": "childhood",
+			"date": "1936",
+			"title": "Bachelor of Science",
+			"blurb": {
+				"description": "Received a Bachelor of Science from Pembroke University (now known as Brown)",
+				"date": "1936"
+			}
+		},
+		{
+			"offset": 285,
+			"stop": 355,
+			"group": "childhood",
+			"date": "1942-1949",
+			"title": "Science teacher",
+			"blurb": {
+				"description": "Science teacher at Milton Academy (in Massachusetts)",
+				"date": "Feburary 13th, 1916"
+			}
+		}
+	]
+}

@@ -2,8 +2,8 @@
 layout: base
 title: Dr. Dorothy E. Bliss
 subtitle: Hello
-css: [/css/index.css, /css/timeline.css]
-js: [/js/slideshow.js, /js/timeline.js]
+css: [/css/index.css, /css/timeline.css, "https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css"]
+js: [/js/slideshow.js, "https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js", /js/timeline.js]
 ---
 <div class="jumbotron jumbotron-fluid" id="page-top">
 	<div class="container">
@@ -16,10 +16,13 @@ js: [/js/slideshow.js, /js/timeline.js]
 	<p>hi</p>
 </div>
 
+<div id='timeline-embed' style="width: 100%; height: 600px"></div>
+
 <div class="timeline">
-	<div class="timeline-line">
-		<div class="timeline-dot" style="left: 5px"></div>
-		<div class="timeline-dot" style="left: 100px"></div>
-		<div class="timeline-dot" style="left: 150px"></div>
+	<div class="timeline-loading">
+		Loading timeline, please wait...
+	</div>
+	<div class="timeline-line hidden">
+		
 	</div>
 </div>
