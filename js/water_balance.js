@@ -49,7 +49,7 @@ pool2.b = 52;
 objects.push(pool2);
 
 var die = function() {
-	alert("You died :(");
+	$(".game-die").removeClass("hidden");
 	dead = true;
 }
 
