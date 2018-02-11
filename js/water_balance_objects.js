@@ -2,28 +2,60 @@
 function Crab() {
 	this.x = 0;
 	this.y = 0;
-	this.salinity = 70;
-	this.food = 100;
+	this.inPool = false;
+	this.salinity = 15;
 	this.salinityTimer = 30;
+	this.salinityGenerateTimer = 20;
+	this.food = 100;
+	this.foodTimer = 30;
 	this.width = 125;
 	this.height = 94;
 	this.speed = 2;
 }
 
-Crab.prototype.update = function() {
-	this.salinityTimer--;
-	if (this.salinityTimer <= 0) {
-		this.salinity--;
-		this.salinityTimer = 30;
+Crab.prototype.update = function(scene) {
+	var testPool = function(pool) {
+		// from https://math.stackexchange.com/questions/76457/check-if-a-point-is-within-an-ellipse
+		var x = this.x + (this.width / 2);
+		var y = this.y + (this.height / 2);
+		var inequality = (Math.pow(x - pool.x, 2) / Math.pow(pool.a, 2)) + (Math.pow(y - pool.y, 2) / Math.pow(pool.b, 2));
+		var intersects = (inequality <= 1);
+		if (intersects) {
+			this.salinityGenerateTimer--;
+			if (this.salinityGenerateTimer < 0) {
+				this.salinityGenerateTimer = 20;
+				this.salinity += 1;
+				if (this.salinity > 35) {
+					die();
+				}
+			}
+			this.inPool = true;
+		} else {
+			this.inPool = false;
+		}
+	};
+
+	testPool.call(this, scene.pool1);
+	testPool.call(this, scene.pool2);
+
+	if (!this.inPool) {
+		this.salinityTimer--;
+		if (this.salinityTimer <= 0) {
+			this.salinity--;
+			this.salinityTimer = 30;
+		}
+		if (this.salinity <= 0) {
+			die();
+		}
 	}
 };
 
 Crab.prototype.draw = function(ctx, images) {
 	var crabImage = images.crab;
 
-	if (this.salinity > 40) {
+	if (this.salinity > 15) {
 		crabImage = images.crab_bulging1;
-	} else if (this.salinity > 50) {
+	} else if (this.salinity > 20) {
 		crabImage = images.crab_bulging2;
 	}
 	
@@ -67,9 +99,7 @@ EvilCrab.prototype.update = function(scene) {
 
 	// target eat
 	if (Math.abs(foodCenterX - crabCenterX) < 3 && Math.abs(foodCenterY - crabCenterY) < 3) {
-		if (this.eatTimer > 2*60) {
-			console.log(targetFood);
-
+		if (this.eatTimer > 1*60) {
 			// eat food
 			targetFood.eat(this);
 			targetPoolFood.splice(this.targetFoodIndex, 1);

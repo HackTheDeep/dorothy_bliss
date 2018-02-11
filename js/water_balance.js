@@ -13,9 +13,12 @@ var imageList = [
 var images = {};
 
 var keys = {};
+var lastKeys = {};
 
 var canvas;
 var ctx;
+
+var dead = false;
 
 var objects = [];
 var pool1food = [];
@@ -44,6 +47,11 @@ pool2.y = 442;
 pool2.a = 112.5;
 pool2.b = 52;
 objects.push(pool2);
+
+var die = function() {
+	alert("You died :(");
+	dead = true;
+}
 
 var updateArray = function(array) {
 	array.forEach(function(object) {
@@ -90,6 +98,10 @@ var generateFood = function(food, pool, poolArray) {
 };
 
 var loop = function() {
+	if (dead) {
+		return;
+	}
+
 	// food generation
 	if (pool1food.length < 3) {
 		if (foodTimer > 60*3) {
@@ -113,16 +125,16 @@ var loop = function() {
 
 	// input
 	if (keys[37]) { // left
-		crab.x--;
+		crab.x -= crab.speed;
 	}
 	if (keys[38]) { // up
-		crab.y--;
+		crab.y -= crab.speed;
 	}
 	if (keys[39]) { // right
-		crab.x++;
+		crab.x += crab.speed;
 	}
 	if (keys[40]) { // down
-		crab.y++;
+		crab.y += crab.speed;
 	}
 
 	// draw
@@ -136,6 +148,10 @@ var loop = function() {
 	ctx.font = "14px Arial";
 	ctx.fillText("Salinity: " + crab.salinity + "%", 10, 24); 
 	ctx.fillText("Food: " + crab.food + "%", 10, 48); 
+
+	for (var keyCode in keys) {
+		lastKeys[keyCode] = keys[keyCode];
+	}
 
 	window.requestAnimationFrame(loop);
 };
