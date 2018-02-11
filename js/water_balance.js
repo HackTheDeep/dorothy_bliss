@@ -136,6 +136,17 @@ var loop = function() {
 	if (keys[40]) { // down
 		crab.y += crab.speed;
 	}
+	if (keys[32] && !lastKeys[32]) {
+		// try eat
+		[pool1food, pool2food].forEach(function(foodArray) {
+			foodArray.forEach(function(food, i) {
+				if (crab.intersectsWithFood(food)) {
+					food.eat(crab);
+					foodArray.splice(i, 1);
+				}
+			});
+		});
+	}
 
 	// draw
 	ctx.drawImage(images.sand, 0, 0);
