@@ -1,3 +1,14 @@
 canvas {
 	background: white;
 }
+
+.game {
+	float: right;
+}
+
+.instructions {
+	float: left;
+	padding-left: 30px;
+	padding-top: 30px;
+	width: calc(100vh - 80px);
+}

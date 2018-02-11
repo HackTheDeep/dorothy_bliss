@@ -3,6 +3,26 @@ layout: base
 css: [/css/water_balance.css]
 js: [/js/pxloader.min.js, /js/water_balance_objects.js, /js/water_balance.js]
 ---
-<canvas width="800px" height="600px">
+<nav class="navbar sticky-top navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+        <img src="/img/crabnottext.svg" height="30px">
+        Dr. Dorothy E. Bliss
+    </a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Return Home</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<canvas class="game" width="800px" height="600px">
 
 </canvas>
+
+<div class="instructions">
+    <h1>Instructions</h1>
+    <p class="lead">Live the life of a crab!</p>
+    <p>Your character is the red crab. Your goal is to beat the black crab by maintaining a salinity level of 15% and staying fed. Use the arrow keys to move around the sand dunes. To increase salinity, take a dip in the salt water pools. Stay out of the water to decrease. Keep track of your saline level through the bar in the top left corner. To eat, go to the blades of grass around the water pools and press space. The black crab likes to steal the food for himself and burrow away with it, so he periodically will take it and travel under the sand with the grass and leave it somewhere else. You can still eat this grass, just keep track of it. Maintain a hunger level above 0% to stay alive!</p>
+</div>
