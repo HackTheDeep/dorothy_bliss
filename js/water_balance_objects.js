@@ -4,34 +4,47 @@ function Crab() {
 	this.y = 0;
 	this.inPool = false;
 	this.salinity = 15;
-	this.salinityTimer = 30;
-	this.salinityGenerateTimer = 20;
-	this.food = 100;
-	this.foodTimer = 30;
+	this.salinityTimer = 60;
+	this.salinityGenerateTimer = 40;
+	this.food = 50;
+	this.foodTimer = 15;
 	this.width = 125;
 	this.height = 94;
 	this.speed = 2;
 }
 
+Crab.prototype.intersectsWithFood = function(food) {
+	var x = this.x + (this.width / 2);
+	var y = this.y + (this.height / 2);
+	
+	if (x > food.x && x < (food.x + food.width) && y > food.y && y < (food.y + food.height)) {
+		return true;
+	}
+	return false;
+};
+
+Crab.prototype.intersectsWithPool = function(pool) {
+	// from https://math.stackexchange.com/questions/76457/check-if-a-point-is-within-an-ellipse
+	var x = this.x + (this.width / 2);
+	var y = this.y + (this.height / 2);
+	var inequality = (Math.pow(x - pool.x, 2) / Math.pow(pool.a, 2)) + (Math.pow(y - pool.y, 2) / Math.pow(pool.b, 2));
+	return (inequality <= 1);
+};
+
 Crab.prototype.update = function(scene) {
+	this.inPool = false;
+
 	var testPool = function(pool) {
-		// from https://math.stackexchange.com/questions/76457/check-if-a-point-is-within-an-ellipse
-		var x = this.x + (this.width / 2);
-		var y = this.y + (this.height / 2);
-		var inequality = (Math.pow(x - pool.x, 2) / Math.pow(pool.a, 2)) + (Math.pow(y - pool.y, 2) / Math.pow(pool.b, 2));
-		var intersects = (inequality <= 1);
-		if (intersects) {
+		if (this.intersectsWithPool(pool)) {
 			this.salinityGenerateTimer--;
 			if (this.salinityGenerateTimer < 0) {
-				this.salinityGenerateTimer = 20;
+				this.salinityGenerateTimer = 40;
 				this.salinity += 1;
 				if (this.salinity > 35) {
 					die();
 				}
 			}
 			this.inPool = true;
-		} else {
-			this.inPool = false;
 		}
 	};
 
@@ -42,9 +55,18 @@ Crab.prototype.update = function(scene) {
 		this.salinityTimer--;
 		if (this.salinityTimer <= 0) {
 			this.salinity--;
-			this.salinityTimer = 30;
+			this.salinityTimer = 60;
 		}
 		if (this.salinity <= 0) {
+			die();
+		}
+	}
+
+	this.foodTimer--;
+	if (this.foodTimer <= 0) {
+		this.food--;
+		this.foodTimer = 15;
+		if (this.food <= 0) {
 			die();
 		}
 	}
@@ -91,6 +113,11 @@ EvilCrab.prototype.update = function(scene) {
 	var targetPoolObject = (this.targetPool == 1 ? scene.pool1 : scene.pool2);
 	var targetPoolFood = (this.targetPool == 1 ? scene.pool1food : scene.pool2food);
 	var targetFood = targetPoolFood[this.targetFoodIndex];
+
+	if (!targetFood) {
+		this.targetPool = -1;
+		return;
+	}
 
 	var foodCenterX = targetFood.x + (targetFood.width / 2);
 	var foodCenterY = targetFood.y + (targetFood.height / 2);
