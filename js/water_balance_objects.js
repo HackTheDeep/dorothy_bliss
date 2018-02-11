@@ -3,9 +3,11 @@ function Crab() {
 	this.x = 0;
 	this.y = 0;
 	this.salinity = 70;
+	this.food = 100;
 	this.salinityTimer = 30;
 	this.width = 125;
 	this.height = 94;
+	this.speed = 2;
 }
 
 Crab.prototype.update = function() {
@@ -43,7 +45,6 @@ function EvilCrab(goodCrab) {
 	this.targetPool = -1;
 	this.targetFoodIndex = -1;
 	this.eatTimer = 0;
-	this.speed = 1;
 }
 
 EvilCrab.prototype.update = function(scene) {
@@ -51,7 +52,8 @@ EvilCrab.prototype.update = function(scene) {
 	if (this.targetPool == -1) {
 		// find food to eat
 		this.targetPool = Math.floor((Math.random() * 2) + 1);
-		this.targetFoodIndex = Math.floor((Math.random() * 3));
+		var targetPoolFood = (this.targetPool == 1 ? scene.pool1food : scene.pool2food);
+		this.targetFoodIndex = Math.floor((Math.random() * targetPoolFood.length));
 	}
 
 	var targetPoolObject = (this.targetPool == 1 ? scene.pool1 : scene.pool2);
@@ -63,25 +65,38 @@ EvilCrab.prototype.update = function(scene) {
 	var crabCenterX = this.x + (this.width / 2);
 	var crabCenterY = this.y + (this.height / 2);
 
-	// target movement
-	if (foodCenterX > crabCenterX) {
-		this.x += this.speed;
-	} else if (foodCenterX < crabCenterX) {
-		this.x -= this.speed;
-	}
-
-	if (foodCenterY > crabCenterY) {
-		this.y += this.speed;
-	} else if (foodCenterY < crabCenterY) {
-		this.y -= this.speed;
-	}
-
 	// target eat
 	if (Math.abs(foodCenterX - crabCenterX) < 3 && Math.abs(foodCenterY - crabCenterY) < 3) {
-		if (this.eatTimer > 3*60) {
+		if (this.eatTimer > 2*60) {
+			console.log(targetFood);
 
+			// eat food
+			targetFood.eat(this);
+			targetPoolFood.splice(this.targetFoodIndex, 1);
+
+			// burrow
+			this.x = Math.floor((Math.random() * (800 - 200)) + 1);
+			this.y = 250 + Math.floor((Math.random() * (600 - 250 - 100)) + 1);
+
+			// reset
+			this.eatTimer = 0;
+			this.targetPool = -1;
+			this.targetFoodIndex = -1;
 		} else {
 			this.eatTimer++;
+		}
+	} else {
+		// target movement
+		if (foodCenterX > crabCenterX) {
+			this.x += this.speed;
+		} else if (foodCenterX < crabCenterX) {
+			this.x -= this.speed;
+		}
+
+		if (foodCenterY > crabCenterY) {
+			this.y += this.speed;
+		} else if (foodCenterY < crabCenterY) {
+			this.y -= this.speed;
 		}
 	}
 };
@@ -112,6 +127,11 @@ function Food() {
 	this.width = 35;
 	this.height = this.origHeight * (this.width/this.origWidth);
 }
+
+Food.prototype.eat = function(crab) {
+	crab.hunger += 10;
+	crab.hunger = Math.min(100, Crab.hunger);
+};
 
 Food.prototype.update = function() {
 

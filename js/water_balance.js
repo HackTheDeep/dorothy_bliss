@@ -135,6 +135,7 @@ var loop = function() {
 	ctx.fillStyle = "black";
 	ctx.font = "14px Arial";
 	ctx.fillText("Salinity: " + crab.salinity + "%", 10, 24); 
+	ctx.fillText("Food: " + crab.food + "%", 10, 48); 
 
 	window.requestAnimationFrame(loop);
 };
