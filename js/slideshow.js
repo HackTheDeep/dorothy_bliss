@@ -12,7 +12,6 @@ var images = [
 ]
 
 $(document).ready(function(){  
-    var easter_egg = new Konami('http://shell2017.picoctf.com:50681/');
     changeImage();
     setTimeout(() => {
         $("#center-crab-wrapper").fadeOut(() => {
