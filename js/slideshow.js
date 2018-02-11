@@ -13,7 +13,16 @@ var images = [
 
 $(document).ready(function(){  
     changeImage();
-    var imageChanger = window.setInterval(changeImage, 5000);
+    setTimeout(() => {
+        $("#center-crab-wrapper").fadeOut(() => {
+            $("#center-crab-wrapper").fadeOut(() => {
+                $("#everything").fadeIn(() => {
+                    $("body").css("background-color", "white")
+                });
+            })
+        })
+        var imageChanger = window.setInterval(changeImage, 5000);
+    }, 1500);
 })
 
 var imageNumber = 0

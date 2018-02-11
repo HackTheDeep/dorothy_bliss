@@ -2,7 +2,7 @@
     height: 90vh;
     background-position: center;
     background-size: cover;
-    transition: background-image .3s linear;
+    transition: background .3s linear;
     padding-top: 5vh;
     padding-right: 10px;
     padding-left: 10px;
@@ -31,7 +31,18 @@
     text-align: center;
 }
 
-.center-crab {
+#center-crab-wrapper {
+    vertical-align: middle;
+    text-align: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#center-crab {
     width: 40vw;
-    align-content: center;
+    padding-top: 10vw;
+}
+
+.hidden {
+    display: none;
 }

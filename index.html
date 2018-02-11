@@ -5,21 +5,23 @@ subtitle: Hello
 css: [/css/index.css, "https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css"]
 js: [/js/slideshow.js, "https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js", /js/timeline.js]
 ---
-<div class="jumbotron jumbotron-fluid" id="page-top">
-	<div class="top-title-container">
-		<img src="css/crab.png" class="center-crab">
-	</div>
+<div id="center-crab-wrapper">
+	<img src="css/crab.png" id="center-crab">
 </div>
-<!-- <img src="/img/crab.svg"/> -->
-<div class="caption-citation-container">
-	<div class="container">
-		<div class="caption-citation">
-			<p id="caption-citation-text"></p>
+<div class="hidden" id="everything">
+		<div class="jumbotron jumbotron-fluid" id="page-top">
+			<img src="/css/crab.png" id="top-crab" width="300px"/>
 		</div>
-		<div class="scroll-hint">
-			<p>Scroll for more...</p>
+		<div class="caption-citation-container">
+			<div class="container">
+				<div class="caption-citation">
+					<p id="caption-citation-text"></p>
+				</div>
+				<div class="scroll-hint">
+					<p>Scroll for more...</p>
+				</div>
+			</div>
 		</div>
-	</div>
+		
+		<div id='timeline-embed' style="width: 100%; height: 600px"></div>
 </div>
-
-<div id='timeline-embed' style="width: 100%; height: 600px"></div>
