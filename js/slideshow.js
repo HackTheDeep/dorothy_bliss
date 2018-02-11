@@ -26,7 +26,6 @@ $(document).ready(function(){
 var imageNumber = 0
 
 function changeImage() {
-    console.log(imageNumber)
     var imagesLength = images.length - 1;
     $("#page-top").css("background-image", "url(\"" + images[imageNumber].url + "\")")
     $("#caption-citation-text").fadeOut(function(){
