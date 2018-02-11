@@ -1,17 +1,17 @@
-.crab-box {
-    position: relative;
-    height: 596px;
-    width: 900px;
-    background-image: url("/img/crab_anatomy/crab.jpg");
-    cursor: url("/img/crab_anatomy/magnifier.png") !important;
-    float: right;
-}
-
-
 .instructions {
     float: left;
     padding-top: 30px;
     padding-left: 30px;
+	width: calc(100% - 900px);
+}
+
+.crab-box {
+    position: relative;
+    width: 900px;
+    height: 596px;
+    background-image: url("/img/crab_anatomy/crab.jpg");
+    cursor: url("/img/crab_anatomy/magnifier.png") !important;
+    float: right;
 }
 
 #crab-eyes {
