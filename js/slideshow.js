@@ -6,7 +6,7 @@ var images = [
     },
     { 
         url: "/img/335299.jpg",
-        caption: "Dr. Bliss holds something.",
+        caption: "",
         citation: "Image no. 334299, AMNH Library"
     }
 ]
