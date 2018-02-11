@@ -1,0 +1,65 @@
+.crab-box {
+    position: relative;
+    height: 596px;
+    width: 900px;
+    background-image: url("/img/crab_anatomy/crab.jpg");
+    cursor: url("/img/crab_anatomy/magnifier.png") !important;
+    float: right;
+}
+
+
+.instructions {
+    float: left;
+    padding-top: 30px;
+    padding-left: 30px;
+}
+
+#crab-eyes {
+    position: absolute;
+    width: 128px;
+    height: 39px;
+    top: 185px;
+    left: 367px;
+    z-index: 10;
+    cursor: zoom-in;
+}
+
+#crab-legs-left {
+    position: absolute;
+    width: 233px;
+    height: 151px;
+    top: 375px;
+    left: 100px;
+    z-index: 10;
+    cursor: zoom-in;
+}
+
+#crab-legs-right {
+    position: absolute;
+    width: 233px;
+    height: 173px;
+    top: 350px;
+    left: 575px;
+    z-index: 10;
+    cursor: zoom-in;
+}
+
+#crab-pincher-right {
+    position: absolute;
+    width: 226px;
+    height: 128px;
+    top: 185px;
+    left: 650px;
+    z-index: 10;
+    cursor: zoom-in;
+}
+
+#crab-pincher-left {
+    position: absolute;
+    width: 226px;
+    height: 128px;
+    top: 225px;
+    left: 18px;
+    z-index: 10;
+    cursor: zoom-in;
+}
