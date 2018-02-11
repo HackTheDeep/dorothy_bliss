@@ -15,11 +15,9 @@ $(document).ready(function(){
     changeImage();
     setTimeout(() => {
         $("#center-crab-wrapper").fadeOut(() => {
-            $("#center-crab-wrapper").fadeOut(() => {
-                $("#everything").fadeIn(() => {
-                    $("body").css("background-color", "white")
-                });
-            })
+            $("#everything").fadeIn(() => {
+                $("body").css("background-color", "white")
+            });
         })
         var imageChanger = window.setInterval(changeImage, 5000);
     }, 1500);
