@@ -21,8 +21,16 @@ js: [/js/pxloader.min.js, /js/water_balance_objects.js, /js/water_balance.js]
     <div class="instructions">
         <h1>Instructions</h1>
         <p class="lead">Live the life of a crab!</p>
-        <p>Your character is the red crab. Your goal is to beat the black crab by maintaining a salinity level of 15% and staying fed. Use the arrow keys to move around the sand dunes. To increase salinity, take a dip in the salt water pools. Stay out of the water to decrease. Keep track of your saline level through the bar in the top left corner. To eat, go to the blades of grass around the water pools and press space. The black crab likes to steal the food for himself and burrow away with it, so he periodically will take it and travel under the sand with the grass and leave it somewhere else. You can still eat this grass, just keep track of it. Maintain a hunger level above 0% to stay alive!</p>
+        <p>Your character is the red crab. Your goal is to beat the black crab by maintaining a salinity level of 15% and staying fed.</p>
+        <p>Use the arrow keys to move around the sand dunes. To increase salinity, take a dip in the salt water pools. Stay out of the water to decrease.</p>
+        <p>Keep track of your saline level through the percentage in the top left corner. To eat, go to the blades of grass around the water pools and press SPACE. The black crab likes to steal the food for himself and burrow away somewhere else, so watch out! Maintain a hunger level above 0% to stay alive!</p>
     </div>
 
-    <canvas width="800px" height="600px"></canvas>
+    <div class="game-wrapper">
+        <canvas width="800px" height="600px"></canvas>
+        <div class="game-die hidden">
+            <h3>You died!</h3>
+            <a href="/water_balance.html" class="btn btn-primary">Play again</a>
+        </div>
+    </div>
 </div>

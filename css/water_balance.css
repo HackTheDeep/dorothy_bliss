@@ -1,9 +1,30 @@
-canvas {
+.game-wrapper, canvas {
 	background: white;
-	float: right;
 	width: 700px;
 	margin-top: 10px;
 	margin-right: 20px;
+}
+
+.game-wrapper {
+	float: right;
+	position: relative;
+}
+
+.game-die {
+	background: rgba(255, 255, 255, 0.5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding-top: 100px;
+	opacity: 1;
+	transition: opacity 0.2s;
+}
+
+.game-die.hidden {
+	opacity: 0;
 }
 
 .instructions {
