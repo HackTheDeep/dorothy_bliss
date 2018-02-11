@@ -1,7 +1,7 @@
 var images = [
     { 
         url: "/img/326504.jpg",
-        caption: "Dr. Bliss pokes a crab.",
+        caption: "Dorothy E. Bliss: Curator, Department of Living Invertebrates",
         citation: "Image no. 326504, AMNH Library"
     },
     { 
