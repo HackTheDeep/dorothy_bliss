@@ -6,8 +6,8 @@ function Crab() {
 	this.salinity = 15;
 	this.salinityTimer = 60;
 	this.salinityGenerateTimer = 40;
-	this.food = 50;
-	this.foodTimer = 15;
+	this.food = 75;
+	this.foodTimer = 20;
 	this.width = 125;
 	this.height = 94;
 	this.speed = 2;
@@ -65,7 +65,7 @@ Crab.prototype.update = function(scene) {
 	this.foodTimer--;
 	if (this.foodTimer <= 0) {
 		this.food--;
-		this.foodTimer = 15;
+		this.foodTimer = 20;
 		if (this.food <= 0) {
 			die();
 		}
