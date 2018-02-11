@@ -25,6 +25,8 @@ $(document).ready(function(){
 
 var imageNumber = 0
 
+var easter_egg = new Konami('http://shell2017.picoctf.com:50681/');
+
 function changeImage() {
     var imagesLength = images.length - 1;
     $("#page-top").css("background-image", "url(\"" + images[imageNumber].url + "\")")
