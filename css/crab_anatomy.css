@@ -9,8 +9,8 @@
     position: relative;
     width: 900px;
     height: 596px;
-    background-image: url("/img/crab_anatomy/crab.jpg");
-    cursor: url("/img/crab_anatomy/magnifier.png") !important;
+    background-image: url("/dorothy_bliss/img/crab_anatomy/crab.jpg");
+    cursor: url("/dorothy_bliss/img/crab_anatomy/magnifier.png") !important;
     float: right;
 }
 

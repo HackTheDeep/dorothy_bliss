@@ -1,11 +1,11 @@
 var images = [
     { 
-        url: "/img/326504.jpg",
+        url: "/dorothy_bliss/img/326504.jpg",
         caption: "Dorothy E. Bliss: Curator, Department of Living Invertebrates",
         citation: "Image no. 326504, AMNH Library"
     },
     { 
-        url: "/img/335299.jpg",
+        url: "/dorothy_bliss/img/335299.jpg",
         caption: "",
         citation: "Image no. 334299, AMNH Library"
     }
