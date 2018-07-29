@@ -186,8 +186,8 @@ function Food() {
 }
 
 Food.prototype.eat = function(crab) {
-	crab.hunger += 10;
-	crab.hunger = Math.min(100, Crab.hunger);
+	crab.food += 10;
+	crab.food = Math.min(100, crab.food);
 };
 
 Food.prototype.update = function() {
